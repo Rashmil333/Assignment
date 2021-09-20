@@ -10,12 +10,8 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MenuIcon from '@material-ui/icons/Menu';
-import MailIcon from '@material-ui/icons/Mail';
 import {useSelector} from "react-redux";
 import Badge from '@material-ui/core/Badge';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import {
   Collapse,
   Navbar,
@@ -30,11 +26,8 @@ import {
   DropdownItem,
   NavbarText
 } from 'reactstrap';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import SearchIcon from '@material-ui/icons/Search';
 
-const logo="https://i.ibb.co/MD5DV1q/logo.png";
+
  
 const useStyles = makeStyles({
   list: {
@@ -94,19 +87,12 @@ const Dnavbar = (props) => {
      
     </div>
   );
-  const [userdata,setuserdata]=useState({
-  firstname:"user"
-  });
   const history=useHistory();
-  const [chat,setchat]=useState(false);
+ 
   const [signin,setsignin]=useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [profile_photo,setprofile_photo]=useState();
-  const [profile_status,setprofile_status]=useState();
   const [login_status,setloginstatus]=useState();
-  const [cat,setcat]=useState();
-  const [email,setemail]=useState();
-  const [cart_count,setcart_count]=useState(0);
+  
 
   const toggle = () => setIsOpen(!isOpen);
    const postdata=async(e)=>{
@@ -120,39 +106,6 @@ const Dnavbar = (props) => {
      
     });
     history.push("/login");
-
-
-   }
-
-  const getdata=async()=>{
-    
-    
-    const res=await fetch("/getdata",{
-      method:"GET",
-       headers:{
-        Accept:"application/json",
-        "Content-Type":"application/json"
-      },
-      credentials:"include"
-     
-    });
-    const data=await res.json();
-    console.log(data);
-    setuserdata(data);
-    console.log(data);
-    setemail(data.email);
-    setloginstatus(data.login_status);
-    if(data.profile_status==1){
-       console.log(data.profile[0].img);
-    setprofile_photo(data.profile[0].img);
-    setemail(data.email)
-    setcart_count(data.cart.length);
-    }
-   
-   
-  
-
-    
 
 
    }
@@ -214,33 +167,9 @@ const Dnavbar = (props) => {
 
 
    }
-   useEffect(()=>{
-   getdata();
-   },[]);
-   useEffect(()=>{
-   console.log(window.location.href);
-   setcat(window.location.href);
-   },[]);
-
-   const ai=()=>{
-   var text=document.getElementById('nav_search').value;
-   console.log(text);
+ 
 
 
-   }
-
-   const cart_number_item=useSelector((state)=>state.Addcart)
-   
-  const {
-    transcript,
-    listening,
-    resetTranscript,
-    browserSupportsSpeechRecognition
-  } = useSpeechRecognition();
-
-  if (!browserSupportsSpeechRecognition) {
-    return <span>Browser doesn't support speech recognition.</span>;
-  }
 
 
   return (<>
@@ -267,19 +196,8 @@ const Dnavbar = (props) => {
               <NavLink href="#">
           <div style={{display:'flex'}}>
                  <input type="text" placeholder="Speak-launch chat" id="nav_search" value={transcript}/>
-                <div class="g_panda_main_nav" onClick={SpeechRecognition.startListening}>
-        <div class="g_eye_nav">
-          <div class="g_pupil_nav">
+  
           </div>
-        </div>
-        <div class="g_eyeright_nav">
-          <div class="g_pupil2_nav">
-          </div>
-        </div>
-      <div class="g_face_nav">
-      </div>
-    </div>
-    </div>
               </NavLink>
             </NavItem>
       </Navbar>
@@ -291,6 +209,3 @@ const Dnavbar = (props) => {
 }
 
 export default Dnavbar;
-
-// heroku git:remote -a testmern52
-// git push heroku master
