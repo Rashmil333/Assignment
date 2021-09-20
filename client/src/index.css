@@ -1,0 +1,146 @@
+#body{
+	background-image:url('https://images.unsplash.com/photo-1624030275207-77bac1c83be3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8a3Jpc2huYXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80');
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-color:#171717;
+
+}
+
+
+
+
+#nav_search{
+	border:none;
+	outline:none;
+	border-radius: 10px;
+	width:295px;
+	height:35px;
+	margin-left: 10px;
+	margin-top:6px;
+	padding-left: 10px
+}
+
+
+
+#Dsendbut{
+	background-color: pink;
+	color:black;
+	margin-top: 15px;
+	
+}
+#text_pink{
+	color:#e32160;
+}
+#text_white{
+	color: white;
+}
+.letusinput{
+	outline:none;
+	border:none;
+	border-radius:4px;
+	height:35px;
+	padding:8px;
+	box-shadow:  5px 5px 15px -5px white;
+	background-color:#fac6e5;
+	color:black;
+	width:50%;
+	margin-top:10px;
+}
+#formshadowdiv{
+	box-shadow:  5px 5px 15px -5px white;
+	margin-top:100px;
+	text-align: center;
+	background-image: url("https://thumbs.gfycat.com/DependableHeavenlyKentrosaurus-size_restricted.gif");
+	border-radius: 10px;
+
+}
+
+/*---------------------------------------------------Media query css-----------------------------------------------------------------------------------------*/
+								------------------------------------------------------------
+@media(max-width: 586px){
+	#formshadowdiv{
+		width: 95%;
+	}
+	.letusinput{
+		width: 90%;
+
+	}
+}
+
+
+
+/*-----------------------------------------------------Sql css-----------------------------------------------------------------------------------------*/
+								----------------------------------------------
+#sqlinput{
+	
+	border: none;
+	width: 95%;
+	height: 37px;
+	margin-top: 10px	;
+
+}
+
+#sqlsidebar{
+	background:linear-gradient(to bottom,red,green,blue);
+	height: 500px;
+
+
+}
+.sqlcard{
+	width:250px;
+	
+	background: linear-gradient(to right,white,pink);
+	border-radius: 20px;
+	text-align: center;
+	display:inline-block;
+	margin-left: 10px;
+	margin-top: 20px;
+}
+.sqlcardselected{
+	width:250px;
+
+	background:mintcream;
+	transform: rotate(20deg);
+	border-radius: 20px;
+	text-align: center;
+	display:inline-block;
+	margin-left: 10px;
+	margin-top: 20px;
+
+}
+.sqlcard:hover{
+	transform: rotate(20deg);
+	background:lightgoldenrodyellow;
+}
+
+.info_line{
+	animation: glowish 3s linear infinite;
+}
+
+@keyframes glowish{
+	0%{
+		color: white;
+	}
+
+	50%{
+		color: yellow;
+		box-shadow: 0px 0px 20px yellow;
+	}
+
+	100%{
+		color: white;
+	}
+}
+
+@media(max-width: 378px){
+.sqlcard{
+	margin-left: 0px;
+	
+}
+.sqlcardselected{
+	margin-left: 0px;
+
+}
+
+}
